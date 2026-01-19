@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int count;  // to count divisors
+
+    cout << "Prime numbers from 1 to 100:\n";
+
+    for (int n = 2; n <= 100; n++) {
+        count = 0;
+
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                count++;  // factor i
+                if (i != n / i) count++;  // factor n/i, avoid double count for squares
+            }
+        }
+
+        if (count == 2)  // only divisible by 1 and itself
+            cout << n << " ";
+    }
+
+    return 0;
+}
